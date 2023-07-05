@@ -1,0 +1,31 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(16, 40px);
+    grid-template-rows: repeat(16, 40px);
+    gap: 2px; /* Optional: Adjust the gap between grid items */
+    max-width: 960px; /* Adjust the maximum width of the grid container as needed */
+    margin: 0 auto; /* Center the grid container horizontally */
+}
+
+.grid .filled {
+    background-color: black;
+}
+
+.grid .filledPerm {
+    background-color: black;
+}
+
+
+.grid .erase {
+    background-color: gray;
+}
+
+.grid div {
+    background-color: gray; /* Example background color */
+    border: 1px solid black; /* Optional: Add borders to the grid items */
+}
+
+.eraser {
+    background-color: rgb(0, 145, 255);
+
+}
