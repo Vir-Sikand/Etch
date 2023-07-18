@@ -1,5 +1,7 @@
 gridContainer = document.querySelector(".grid")
 var dimensions = 16
+var black = true
+var rgb = false
 updateGrid(16)
 
 slider = document.getElementById('slider')
@@ -29,11 +31,15 @@ function updateGrid(sideLength) {
     isMouseDown = false
     gridItems = document.querySelectorAll('.item')
     gridItems.forEach(function(gridItem) {
-    gridItem.addEventListener('mouseover', function(event) {
-        gridItem.classList.add('filled');
+    
+    gridItem.addEventListener('mouseup', function(event) {
+        isMouseDown = false
     })
     gridItem.addEventListener('mouseout', function(event) {
         gridItem.classList.remove('filled');
+    })
+    gridItem.addEventListener('mouseover', function(event) {
+        gridItem.classList.add('filled');
     })
     gridItem.addEventListener('mousedown', function(event) {
         isMouseDown = true
@@ -44,36 +50,9 @@ function updateGrid(sideLength) {
         if (isMouseDown == true) {
             gridItem.classList.add('filledPerm');
         }
-    })
-    gridItem.addEventListener('mouseup', function(event) {
-        isMouseDown = false
     })
 })
 }
-
-isMouseDown = false
-gridItems = document.querySelectorAll('.item')
-gridItems.forEach(function(gridItem) {
-    gridItem.addEventListener('mouseover', function(event) {
-        gridItem.classList.add('filled');
-    })
-    gridItem.addEventListener('mouseout', function(event) {
-        gridItem.classList.remove('filled');
-    })
-    gridItem.addEventListener('mousedown', function(event) {
-        isMouseDown = true
-        gridItem.classList.add('filledPerm');
-    })
-
-    gridItem.addEventListener('mousemove', function(event) {
-        if (isMouseDown == true) {
-            gridItem.classList.add('filledPerm');
-        }
-    })
-    gridItem.addEventListener('mouseup', function(event) {
-        isMouseDown = false
-    })
-})
 
 clearButton = document.querySelector('.clear')
 clearButton.addEventListener('click', function(event) {
@@ -82,3 +61,14 @@ clearButton.addEventListener('click', function(event) {
     })
 })
 
+blackButton = document.querySelector('.black')
+blackButton.addEventListener('click', function(event) {
+    black = true
+    rgb = false
+})
+
+rgbButton = document.querySelector('.RGB')
+rgbButton.addEventListener('click', function(event) {
+    black = false
+    rgb = true
+})
